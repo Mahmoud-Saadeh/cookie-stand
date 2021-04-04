@@ -285,3 +285,75 @@ for (let index = 0; index < paris.openTimes.length; index++) {
 let parisLiTotal = document.createElement('li');
 parisUl.appendChild(parisLiTotal);
 parisLiTotal.textContent = `Total: ${paris.totalCookie()} cookies`;
+
+///////////////////// Lima
+let lima = {
+  name: 'Lima',
+  openTimes: [
+    '6am',
+    '7am',
+    '8am',
+    '9am',
+    '10am',
+    '11am',
+    '12pm',
+    '1pm',
+    '2pm',
+    '3pm',
+    '4pm',
+    '5pm',
+    '6pm',
+    '7pm',
+  ],
+  minCust: 2,
+  maxCust: 16,
+  avgCookie: 4.6,
+  randomCustNum: function () {
+    return (
+      Math.floor(Math.random() * (this.maxCust - this.minCust)) + this.minCust
+    );
+  },
+  hourlyCust: function () {
+    let hourlyCust = [];
+    for (let i = 0; i < this.openTimes.length; i++) {
+      hourlyCust.push(this.randomCustNum());
+    }
+    return hourlyCust;
+  },
+  hourlyAvgCookie: function () {
+    let hourlyCust = this.hourlyCust();
+    let hourlyAvgCookieArr = [];
+    for (let j = 0; j < hourlyCust.length; j++) {
+      hourlyAvgCookieArr.push(Math.floor(hourlyCust[j] * this.avgCookie));
+    }
+    return hourlyAvgCookieArr;
+  },
+  totalCookie: function () {
+    let hourlyAvgCookie = this.hourlyAvgCookie();
+    let total = 0;
+    for (let i = 0; i < hourlyAvgCookie.length; i++) {
+      total = total + hourlyAvgCookie[i];
+    }
+    return total;
+  },
+};
+
+let limaParentElement = document.getElementById('parent');
+let limahead = document.createElement('h2');
+limaParentElement.appendChild(limahead);
+
+limahead.textContent = lima.name;
+
+let limaUl = document.createElement('ul');
+limaParentElement.appendChild(limaUl);
+
+for (let index = 0; index < lima.openTimes.length; index++) {
+  let limaLi = document.createElement('li');
+  limaUl.appendChild(limaLi);
+  limaLi.textContent = `${lima.openTimes[index]}: ${
+    lima.hourlyAvgCookie()[index]
+  } cookies`;
+}
+let limaLiTotal = document.createElement('li');
+limaUl.appendChild(limaLiTotal);
+limaLiTotal.textContent = `Total: ${lima.totalCookie()} cookies`;
