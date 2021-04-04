@@ -1,3 +1,4 @@
+'use strict';
 ///////////////////// Seattle
 let seattle = {
   name: 'Seattle',
