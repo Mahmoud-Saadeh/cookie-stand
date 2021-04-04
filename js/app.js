@@ -213,3 +213,75 @@ for (let index = 0; index < dubai.openTimes.length; index++) {
 let dubaiLiTotal = document.createElement('li');
 dubaiUl.appendChild(dubaiLiTotal);
 dubaiLiTotal.textContent = `Total: ${dubai.totalCookie()} cookies`;
+
+///////////////////// Paris
+let paris = {
+  name: 'Paris',
+  openTimes: [
+    '6am',
+    '7am',
+    '8am',
+    '9am',
+    '10am',
+    '11am',
+    '12pm',
+    '1pm',
+    '2pm',
+    '3pm',
+    '4pm',
+    '5pm',
+    '6pm',
+    '7pm',
+  ],
+  minCust: 20,
+  maxCust: 38,
+  avgCookie: 2.3,
+  randomCustNum: function () {
+    return (
+      Math.floor(Math.random() * (this.maxCust - this.minCust)) + this.minCust
+    );
+  },
+  hourlyCust: function () {
+    let hourlyCust = [];
+    for (let i = 0; i < this.openTimes.length; i++) {
+      hourlyCust.push(this.randomCustNum());
+    }
+    return hourlyCust;
+  },
+  hourlyAvgCookie: function () {
+    let hourlyCust = this.hourlyCust();
+    let hourlyAvgCookieArr = [];
+    for (let j = 0; j < hourlyCust.length; j++) {
+      hourlyAvgCookieArr.push(Math.floor(hourlyCust[j] * this.avgCookie));
+    }
+    return hourlyAvgCookieArr;
+  },
+  totalCookie: function () {
+    let hourlyAvgCookie = this.hourlyAvgCookie();
+    let total = 0;
+    for (let i = 0; i < hourlyAvgCookie.length; i++) {
+      total = total + hourlyAvgCookie[i];
+    }
+    return total;
+  },
+};
+
+let parisParentElement = document.getElementById('parent');
+let parishead = document.createElement('h2');
+parisParentElement.appendChild(parishead);
+
+parishead.textContent = paris.name;
+
+let parisUl = document.createElement('ul');
+parisParentElement.appendChild(parisUl);
+
+for (let index = 0; index < paris.openTimes.length; index++) {
+  let parisLi = document.createElement('li');
+  parisUl.appendChild(parisLi);
+  parisLi.textContent = `${paris.openTimes[index]}: ${
+    paris.hourlyAvgCookie()[index]
+  } cookies`;
+}
+let parisLiTotal = document.createElement('li');
+parisUl.appendChild(parisLiTotal);
+parisLiTotal.textContent = `Total: ${paris.totalCookie()} cookies`;
