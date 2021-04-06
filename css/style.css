@@ -1,5 +1,39 @@
 body {
   background-color: rgb(231, 231, 231);
+  height: 2000px;
+}
+header {
+  position: relative;
+  height: 70px;
+  background-color: rgb(55, 66, 114);
+  padding: 5px 50px;
+  position: sticky;
+  top: 0;
+  box-shadow: 5px 5px 20px 5px rgba(51, 51, 51, 0.322);
+  z-index: 10;
+}
+header div {
+  width: 200px;
+  float: left;
+}
+header div img {
+  width: 150px;
+  margin-top: 10px;
+}
+header nav {
+  position: absolute;
+  right: 50px;
+}
+header nav ul li {
+  display: inline-block;
+  margin: 0 40px;
+}
+header nav ul li a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  vertical-align: middle;
+  line-height: 70px;
 }
 
 table {
@@ -13,4 +47,7 @@ th {
   border-collapse: collapse;
   text-align: center;
   width: 60px;
+}
+th {
+  font-weight: bold;
 }
