@@ -85,14 +85,34 @@ const dubai = new Cookie('Dubai', 11, 38, 3.7);
 const paris = new Cookie('Paris', 20, 38, 2.3);
 const lima = new Cookie('Lima', 2, 16, 4.6);
 
-seattle.render();
-tokyo.render();
-dubai.render();
-paris.render();
-lima.render();
+// seattle.render();
+// tokyo.render();
+// dubai.render();
+// paris.render();
+// lima.render();
+for (let i = 0; i < allLocations.length; i++) {
+  allLocations[i].render();
+}
 
+function submitHandler(event) {
+  event.preventDefault();
+  const name = event.target.name.value;
+  const minCustomer = event.target.minCustomer.value;
+  const maxCustomer = event.target.maxCustomer.value;
+  const avgCookie = event.target.avgCookie.value;
+
+  const newLocation = new Cookie(name, minCustomer, maxCustomer, avgCookie);
+  const removeFooter = document.getElementById('footerTotal');
+  removeFooter.remove();
+
+  newLocation.render();
+
+  renderFooter();
+}
+const form = document.getElementById('new-place-form');
+
+form.addEventListener('submit', submitHandler);
 renderFooter();
-
 /////////// FUNCTIONS
 
 /////////// HEADER FUNCTIONS
@@ -117,6 +137,7 @@ function renderHeader() {
 
 function renderFooter() {
   const tableRow = document.createElement('tr');
+  tableRow.setAttribute('id', 'footerTotal');
   table.appendChild(tableRow);
 
   const tableHeadEmpty = document.createElement('th');

@@ -5,7 +5,7 @@ body {
 header {
   position: relative;
   height: 70px;
-  background-color: rgb(55, 66, 114);
+  background-color: #b46c43c2;
   padding: 5px 50px;
   position: sticky;
   top: 0;
@@ -39,7 +39,7 @@ header nav ul li a {
 table {
   border: solid 1px #333;
   border-collapse: collapse;
-  margin: 50px auto;
+  margin: 0px auto;
 }
 table td,
 th {
@@ -50,4 +50,29 @@ th {
 }
 th {
   font-weight: bold;
+}
+
+#new-place-form {
+  /* margin-top: 1px; */
+  padding: 50px;
+}
+#new-place-form fieldset {
+  border: solid 1px #333;
+  padding: 20px;
+  padding-bottom: 0;
+}
+#new-place-form div {
+  margin-bottom: 30px;
+}
+#new-place-form label {
+  margin-right: 20px;
+  display: inline-block;
+  width: 130px;
+  font-size: 18px;
+}
+#new-place-form input {
+  height: 30px;
+  width: 200px;
+  font-size: 16px;
+  margin-right: 30px;
 }
