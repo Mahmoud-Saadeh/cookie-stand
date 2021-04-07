@@ -26,7 +26,7 @@
           <legend>New Place</legend>
           <div>
             <label for="name">Location Name</label>
-            <input type="text" id="name" name="name" />
+            <input type="text" id="name" name="name" required />
 
             <label for="min-customer">Min Customer/h</label>
             <input
@@ -34,6 +34,7 @@
               id="min-customer"
               name="minCustomer"
               step="0.01"
+              required
             />
           </div>
           <div>
@@ -43,10 +44,17 @@
               id="max-customer"
               name="maxCustomer"
               step="0.01"
+              required
             />
 
             <label for="avg-cookie">Avg. Cookies</label>
-            <input type="number" id="avg-cookie" name="avgCookie" step="0.01" />
+            <input
+              type="number"
+              id="avg-cookie"
+              name="avgCookie"
+              step="0.01"
+              required
+            />
           </div>
           <div>
             <input type="submit" id="submit" />
