@@ -51,7 +51,28 @@ th {
 th {
   font-weight: bold;
 }
-
+td,
+th {
+  vertical-align: middle;
+}
+tr:nth-child(even) {
+  background-color: #d9d9d9;
+}
+tr:nth-child(odd) {
+  background-color: #cf5f36;
+}
+input[type='submit'] {
+  background-color: #cf5f36;
+  border: none;
+  cursor: pointer;
+  width: 150px !important;
+  color: white;
+  transition: all 200ms ease;
+}
+input[type='submit']:hover {
+  background-color: #f08f6c;
+  color: #333;
+}
 #new-place-form {
   /* margin-top: 1px; */
   padding: 50px;
