@@ -22,7 +22,7 @@ const openTimes = [
 ];
 const allLocations = [];
 function Cookie(name, minCust, maxCust, avgCookie) {
-  this.name = name;
+  this.name = name.toUpperCase();
   this.minCust = minCust;
   this.maxCust = maxCust;
   this.avgCookie = avgCookie;
@@ -60,7 +60,7 @@ Cookie.prototype.render = function () {
   this.totalCookie();
 
   const tableRow = document.createElement('tr');
-  tableRow.setAttribute('id', this.name);
+  tableRow.setAttribute('id', this.name.toLowerCase());
   table.appendChild(tableRow);
 
   const tableDataCityName = document.createElement('td');
@@ -101,8 +101,13 @@ function submitHandler(event) {
   const maxCustomer = event.target.maxCustomer.value;
   const avgCookie = event.target.avgCookie.value;
 
-  const newLocation = new Cookie(name, minCustomer, maxCustomer, avgCookie);
-  const existingLocation = document.getElementById(name);
+  const newLocation = new Cookie(
+    name.toUpperCase(),
+    minCustomer,
+    maxCustomer,
+    avgCookie
+  );
+  const existingLocation = document.getElementById(name.toLowerCase());
 
   if (existingLocation) {
     existingLocation.remove();
