@@ -60,6 +60,7 @@ Cookie.prototype.render = function () {
   this.totalCookie();
 
   const tableRow = document.createElement('tr');
+  tableRow.setAttribute('id', this.name);
   table.appendChild(tableRow);
 
   const tableDataCityName = document.createElement('td');
@@ -79,11 +80,11 @@ Cookie.prototype.render = function () {
 
 renderHeader();
 
-const seattle = new Cookie('Seattle', 23, 65, 6.3);
-const tokyo = new Cookie('Tokyo', 3, 24, 1.2);
-const dubai = new Cookie('Dubai', 11, 38, 3.7);
-const paris = new Cookie('Paris', 20, 38, 2.3);
-const lima = new Cookie('Lima', 2, 16, 4.6);
+new Cookie('Seattle', 23, 65, 6.3);
+new Cookie('Tokyo', 3, 24, 1.2);
+new Cookie('Dubai', 11, 38, 3.7);
+new Cookie('Paris', 20, 38, 2.3);
+new Cookie('Lima', 2, 16, 4.6);
 
 // seattle.render();
 // tokyo.render();
@@ -93,7 +94,6 @@ const lima = new Cookie('Lima', 2, 16, 4.6);
 for (let i = 0; i < allLocations.length; i++) {
   allLocations[i].render();
 }
-
 function submitHandler(event) {
   event.preventDefault();
   const name = event.target.name.value;
@@ -102,6 +102,12 @@ function submitHandler(event) {
   const avgCookie = event.target.avgCookie.value;
 
   const newLocation = new Cookie(name, minCustomer, maxCustomer, avgCookie);
+  const existingLocation = document.getElementById(name);
+
+  if (existingLocation) {
+    existingLocation.remove();
+  }
+
   const removeFooter = document.getElementById('footerTotal');
   removeFooter.remove();
 
