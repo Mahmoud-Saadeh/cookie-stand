@@ -1,6 +1,9 @@
 body {
   background-color: rgb(231, 231, 231);
   height: 2000px;
+  font-family: 'Kiwi Maru', serif;
+
+  /* font-family: 'Montserrat', sans-serif; */
 }
 header {
   position: relative;
@@ -38,22 +41,34 @@ header nav ul li a {
 
 table {
   border: solid 1px #333;
-  border-collapse: collapse;
   margin: 0px auto;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  width: 90%;
+}
+tr td.location-name {
+  font-weight: 600;
+  color: #333;
 }
 table td,
 th {
   border: solid 1px #333;
   border-collapse: collapse;
   text-align: center;
-  width: 60px;
+  /* width: 60px; */
 }
 th {
-  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
 }
 td,
 th {
   vertical-align: middle;
+  box-sizing: border-box;
+  padding: 2px;
+}
+tr {
+  height: 50px;
 }
 tr:nth-child(even) {
   background-color: #d9d9d9;
@@ -68,6 +83,12 @@ input[type='submit'] {
   width: 150px !important;
   color: white;
   transition: all 200ms ease;
+  display: block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Kiwi Maru', serif;
+  /* margin: 0 auto; */
 }
 input[type='submit']:hover {
   background-color: #f08f6c;
@@ -81,14 +102,20 @@ input[type='submit']:hover {
   border: solid 1px #333;
   padding: 20px;
   padding-bottom: 0;
+  width: fit-content;
+  margin: 0 auto;
 }
 #new-place-form div {
   margin-bottom: 30px;
 }
+#new-place-form legend {
+  font-size: 25px;
+  text-align: center;
+}
 #new-place-form label {
   margin-right: 20px;
   display: inline-block;
-  width: 130px;
+  width: 160px;
   font-size: 18px;
 }
 #new-place-form input {

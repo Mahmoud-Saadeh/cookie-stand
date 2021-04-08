@@ -65,12 +65,13 @@ Cookie.prototype.render = function () {
 
   const tableDataCityName = document.createElement('td');
   tableRow.appendChild(tableDataCityName);
+  tableDataCityName.setAttribute('class', 'location-name');
   tableDataCityName.textContent = this.name;
 
   for (let i = 0; i < this.hourlyAvgCookieArr.length; i++) {
     const tableData = document.createElement('td');
     tableRow.appendChild(tableData);
-    tableData.textContent = `${this.hourlyAvgCookieArr[i]}\ncookies`;
+    tableData.textContent = `${this.hourlyAvgCookieArr[i]}    cookies`;
   }
 
   const tableDataTotal = document.createElement('td');

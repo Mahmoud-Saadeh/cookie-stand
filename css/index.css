@@ -1,3 +1,14 @@
+body {
+  font-family: 'Kiwi Maru', serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Montserrat', sans-serif;
+}
 header {
   position: relative;
   height: 70px;
@@ -82,13 +93,31 @@ header nav ul li a {
 }
 .hero-area h1 {
   position: absolute;
+  width: fit-content;
   z-index: 3;
-  top: 50%;
+  top: 40%;
   left: 50%;
   color: white;
   font-weight: bold;
-  font-size: 70px;
+  text-transform: uppercase;
+  font-size: 60px;
   transform: translate(-50%, -50%);
+}
+.hero-area p {
+  position: absolute;
+  z-index: 3;
+  top: 65%;
+  left: 50%;
+  color: #cf5f36;
+  font-weight: bold;
+  font-size: 30px;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 1.5;
+  padding: 30px;
 }
 .tools {
   position: relative;
@@ -127,7 +156,7 @@ header nav ul li a {
   position: relative;
   /* height: auto; */
   min-height: 500px;
-  background-color: #fff;
+  background-color: #ddd;
   padding: 20px;
 }
 .fish-type .header {
@@ -188,6 +217,9 @@ header nav ul li a {
   float: right;
   position: absolute;
   right: 50px;
+}
+.testimonials .images img {
+  border-radius: 50%;
 }
 
 footer {
